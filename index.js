@@ -16,17 +16,17 @@ var byObserver = function (Observer) {
 			queue = currentQueue.concat(queue);
 		}
 		currentQueue = queue;
-		queue = null;
+		queue = undefined;
 		if (typeof currentQueue === 'function') {
 			callback = currentQueue;
-			currentQueue = null;
+			currentQueue = undefined;
 			callback();
 			return;
 		}
 		node.data = (i = ++i % 2); // Invoke other batch, to handle leftover callbacks in case of crash
 		while (currentQueue) {
 			callback = currentQueue.shift();
-			if (!currentQueue.length) currentQueue = null;
+			if (!currentQueue.length) currentQueue = undefined;
 			callback();
 		}
 	}).observe(node, { characterData: true });
@@ -64,6 +64,4 @@ module.exports = (function () {
 	if ((typeof setTimeout === 'function') || (typeof setTimeout === 'object')) {
 		return function (cb) { setTimeout(ensureCallable(cb), 0); };
 	}
-
-	return null;
 }());

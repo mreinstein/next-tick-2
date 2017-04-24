@@ -16,6 +16,7 @@
   "devDependencies": {
     "tad": "^0.2.4"
   },
+  "browser": "browser.js",
   "scripts": {
     "test": "tad index.js"
   },
