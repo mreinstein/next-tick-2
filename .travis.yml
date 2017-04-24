@@ -7,7 +7,4 @@ node_js:
   - 6
   - 7
 
-before_install:
-  - mkdir node_modules; ln -s ../ node_modules/next-tick-2
-
-script: "npm test && npm run lint"
+script: "npm test"
