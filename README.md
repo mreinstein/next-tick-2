@@ -2,9 +2,9 @@
 
 Environment agnostic nextTick polyfill
 
-[![Build Status](https://api.travis-ci.org/medikoo/next-tick.png?branch=master)](https://travis-ci.org/medikoo/next-tick)
+[![Build Status](https://api.travis-ci.org/mreinstein/next-tick-2.png?branch=master)](https://travis-ci.org/mreinstein/next-tick-2)
 
-A commonjs module that need nextTick functionality. Works in the node and the browser.
+A commonjs module that provides nextTick functionality in the node and the browser.
 
 - When run in Node.js `process.nextTick` is used
 - In modern browsers microtask resolution is guaranteed by `MutationObserver`
