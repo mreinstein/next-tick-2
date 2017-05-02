@@ -1,24 +1,46 @@
 'use strict'
 
-module.exports = function (t, a, d) {
-	var invoked
+var nextTick = require('../')
+var test     = require('tap').test
 
-	a(t(function () {
-		a(arguments.length, 0, "Arguments")
-		invoked = true
-	}), undefined, "Return")
 
-	a(invoked, undefined, "Is not run immediately")
+test('doesnt run immediately', function(t) {
+  var invoked = false
+
+  nextTick(function() {
+  	invoked = true
+  })
+
+  t.equals(invoked, false)
+
+  t.end()
+})
+
+test('run in next tick', function(t) {
+  var invoked = false
+
+  nextTick(function() {
+  	invoked = true
+  })
+
+  t.equals(invoked, false)
+
+  setTimeout(function () {
+		t.equals(invoked, true, 'Run in next tick')
+		t.end()
+	}, 0)
+})
+
+
+test('preserves run order', function(t) {
+	var invoked = []
+
+	nextTick(function() { invoked.push(99) })
+	nextTick(function() { invoked.push(3) })
+	nextTick(function() { invoked.push(16) })
 
 	setTimeout(function () {
-		a(invoked, true, "Run in next tick")
-		invoked = []
-		t(function () { invoked.push(0); })
-		t(function () { invoked.push(1); })
-		t(function () { invoked.push(2); })
-		setTimeout(function () {
-			a.deep(invoked, [0, 1, 2], "Serial")
-			d()
-		}, 10)
+		t.deepEqual(invoked, [ 99, 3, 16 ], 'Serial')
+		t.end()
 	}, 10)
-}
+})
