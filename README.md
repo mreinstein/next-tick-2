@@ -1,5 +1,7 @@
 # next-tick-2
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mreinstein/next-tick-2.svg)](https://greenkeeper.io/)
+
 Environment agnostic nextTick polyfill
 
 [![Build Status](https://api.travis-ci.org/mreinstein/next-tick-2.png?branch=master)](https://travis-ci.org/mreinstein/next-tick-2)
