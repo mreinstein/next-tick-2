@@ -1,6 +1,9 @@
-# next-tick-2
+# DEPRECATED
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/mreinstein/next-tick-2.svg)](https://greenkeeper.io/)
+Avoid using `next-tick-2` or `next-tick`. `setTimeout(...)` is a better alternative, and it's available everywhere.
+
+
+## next-tick-2
 
 Environment agnostic nextTick polyfill
 

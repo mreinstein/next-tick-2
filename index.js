@@ -1,7 +1,7 @@
 'use strict'
 
 var ensureCallable = function (fn) {
-	if (typeof fn !== 'function') throw new TypeError(fn + " is not a function")
+	if (typeof fn !== 'function') throw new TypeError(fn + ' is not a function')
 	return fn
 }
 
